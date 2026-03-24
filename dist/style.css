@@ -1,0 +1,622 @@
+/* Importação de fontes do Google Fonts */
+@import url(https://www.pexels.com/pt-br/foto/de-madeira-tribunal-corte-de-justica-quadra-6077326/);
+
+/* Variáveis CSS para cores e fontes (facilita a manutenção) */
+:root {
+    --primary-color: #2c3e50; /* Azul escuro quase preto */
+    --secondary-color: #3498db; /* Azul vibrante */
+    --accent-color: #e74c3c; /* Vermelho para destaque */
+    --text-color: #333;
+    --light-gray: #f4f4f4;
+    --white: #ffffff;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Cabeçalho (Header) --- */
+header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg) no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    color: var(--white);
+}
+
+.logo h1 span {
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.btn-contact {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #2980b9; /* Tom mais escuro do azul */
+}
+
+.hero-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    max-width: 800px;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #1a242f;
+}
+
+/* Burger menu para mobile */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- Seções Gerais --- */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* --- Seção Sobre Mim/Nós --- */
+.about-section {
+    background-color: var(--light-gray);
+}
+
+.about-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-text ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.about-text ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.about-text ul li i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+/* --- Seção de Serviços --- */
+.services-section {
+    background-color: var(--white);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.service-item i {
+    font-size: 3em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.service-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* --- Seção de Depoimentos --- */
+.testimonials-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.testimonials-section h2 {
+    color: var(--white);
+}
+
+.testimonials-section h2::after {
+    background-color: var(--secondary-color);
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto; /* Permite scroll horizontal se muitos depoimentos */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px; /* Espaço para scrollbar em alguns navegadores */
+}
+
+.testimonial-item {
+    flex: 0 0 100%; /* Cada item ocupa 100% da largura do contêiner */
+    min-width: 100%;
+    scroll-snap-align: start;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin: 0 10px; /* Espaçamento entre os depoimentos */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+.testimonial-item h4 {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--secondary-color);
+}
+
+
+/* --- Seção de Contato --- */
+.contact-section {
+    background-color: var(--white);
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.contact-info h3, .contact-form h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.contact-info p i {
+    color: var(--secondary-color);
+    margin-right: 15px;
+    font-size: 1.3em;
+}
+
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-primary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+.map-container {
+    margin-top: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    border: 0;
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 992px) {
+    .hero-content h2 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 20px;
+    }
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0; /* Ajuste para ficar abaixo da nav principal se desejar */
+        height: 100vh;
+        background-color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        padding-top: 80px;
+        z-index: 999;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 20px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2em;
+    }
+
+    .burger {
+        display: block;
+        z-index: 1001; /* Para ficar acima do menu quando aberto */
+    }
+
+    .btn-contact {
+        display: none; /* Pode esconder o botão de contato no menu burger */
+    }
+
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .about-section .container,
+    .contact-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+
+    .about-text, .contact-info, .contact-form {
+        text-align: center;
+    }
+
+    .about-text ul {
+        text-align: left; /* Mantém a lista alinhada à esquerda */
+        padding-left: 20px;
+    }
+
+    .testimonial-item {
+        margin: 0 5px; /* Ajusta espaçamento para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.8em;
+    }
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .btn-primary {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    section h2 {
+        font-size: 2em;
+    }
+    .service-item {
+        padding: 20px;
+    }
+    .service-item i {
+        font-size: 2.5em;
+    }
+    .service-item h4 {
+        font-size: 1.4em;
+    }
+    .testimonial-item p {
+        font-size: 1.1em;
+    }
+    .contact-info p {
+        font-size: 1em;
+    }
+    .social-links a {
+        font-size: 1.5em;
+    }
+}
+
+/* Animação do Burger */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
